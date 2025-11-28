@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IShowSpeed — Official Fan / Promo Site</title>
+  <meta name="description" content="FAN SITE — Highlights, Live, Clips, Merch & Tour von IShowSpeed. Energetisches, neon-getöntes Design." />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #07070b;
+      --panel: #0f1116;
+      --muted: #9aa7b8;
+      --neon-1: #00FF9C; /* neon green */
+      --neon-2: #FFD700; /* gold accent */
+      --accent: linear-gradient(90deg,var(--neon-1),#6bfffa, #8b5cf6);
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1200px;
+      --ff-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      --ff-display: 'Bebas Neue', 'Impact', sans-serif;
+      --glow: 0 10px 40px rgba(100,255,180,0.06), 0 0 18px rgba(0,255,154,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff-sans);
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(139,92,246,0.06), transparent 6%),
+        radial-gradient(700px 300px at 90% 90%, rgba(0,255,154,0.03), transparent 4%),
+        var(--bg);
+      color:#eaf6f3;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-font-feature-settings: "liga" 0;
+    }
+
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    /* Top bar */
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:64px;height:64px;border-radius:14px;
+      background:linear-gradient(135deg,var(--neon-1), #7af6ff 40%, #8b5cf6);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--ff-display);font-size:26px;color:#041025;font-weight:700;
+      box-shadow: var(--glow);
+    }
+    .site-title{font-family:var(--ff-display);font-size:20px;letter-spacing:1px}
+    nav{display:flex;gap:12px;align-items:center}
+    a.link{color:var(--muted);text-decoration:none;font-weight:600}
+    a.link:hover{color:var(--neon-1)}
+    .btn-cta{
+      background:var(--accent);color:#041025;border:none;padding:10px 16px;border-radius:12px;font-weight:700;cursor:pointer;
+      box-shadow:0 6px 20px rgba(139,92,246,0.12);
+    }
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    .hero-left h1{font-family:var(--ff-display);font-size:54px;margin:0 0 8px;line-height:0.95}
+    .hero-left p{color:var(--muted);margin:6px 0 18px;font-size:15px}
+    .cta-group{display:flex;gap:12px;align-items:center}
+
+    /* Live Badge */
+    .live-badge{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(0,255,154,0.12), rgba(139,92,246,0.06));backdrop-filter:blur(6px)}
+    .live-dot{width:10px;height:10px;border-radius:50%;background:var(--neon-1);box-shadow:0 0 14px var(--neon-1)}
+
+    /* Right: live preview/card */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:14px;
+      box-shadow:0 10px 30px rgba(2,6,23,0.55);
+    }
+    .video-preview{width:100%;height:240px;border-radius:12px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;position:relative}
+    .video-preview img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05)}
+    .overlay-controls{position:absolute;left:12px;bottom:12px;display:flex;gap:8px;align-items:center}
+    .play-btn{background:var(--neon-1);color:#021012;border:none;padding:10px 12px;border-radius:10px;font-weight:800;cursor:pointer}
+
+    /* Clips grid */
+    .section{margin-top:28px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .clip{background:#071018;border-radius:12px;overflow:hidden;position:relative;height:150px;display:flex;align-items:end;padding:10px}
+    .clip .meta{background:linear-gradient(0deg, rgba(0,0,0,0.7), transparent);padding:8px;border-radius:8px}
+
+    /* Merch strip */
+    .merch-strip{display:flex;gap:12px;overflow:auto;padding:12px 4px;margin-top:12px}
+    .merch-item{min-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+
+    /* Schedule / tour list */
+    .tour-list{display:flex;flex-direction:column;gap:10px}
+    .tour-item{display:flex;justify-content:space-between;gap:12px;background:rgba(255,255,255,0.02);padding:12px;border-radius:12px}
+
+    /* Footer & socials */
+    .socials{display:flex;gap:10px;align-items:center}
+    .socials a{background:rgba(255,255,255,0.03);padding:8px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:700}
+    .muted{color:var(--muted)}
+
+    /* Small screens */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .video-preview{height:200px}
+    }
+    @media (max-width:480px){
+      .grid-4{grid-template-columns:1fr}
+      .logo{width:52px;height:52px;font-size:22px}
+      .hero-left h1{font-size:36px}
+    }
+
+    /* subtle motion */
+    .pulse{animation: pulse 2s infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+
+    /* Neon text */
+    .neon-title{background:linear-gradient(90deg,var(--neon-1), #37dbe6, #8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 14px rgba(0,255,154,0.06))}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden>SPD</div>
+        <div>
+          <div class="site-title">IShowSpeed</div>
+          <div class="muted" style="font-size:13px">Official Fan / Promo</div>
+        </div>
+      </div>
+
+      <nav aria-label="Hauptnavigation">
+        <a class="link" href="#live">Live</a>
+        <a class="link" href="#clips">Clips</a>
+        <a class="link" href="#tour">Tour</a>
+        <a class="link" href="#merch">Merch</a>
+        <a class="link" href="#kontakt">Kontakt</a>
+        <button class="btn-cta" onclick="document.querySelector('#kontakt').scrollIntoView({behavior:'smooth'})">Get Merch</button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero" id="live">
+        <div class="hero-left">
+          <div class="live-badge" aria-hidden><span class="live-dot pulse"></span><strong style="font-weight:700">LIVE</strong><span class="muted" style="font-size:13px">Jetzt streamt</span></div>
+          <h1 class="neon-title">SPEED — LIVE & UNFILTERED</h1>
+          <p>Die lautesten Reaktionen, Karriere-Momente & exklusive Clips. Folge dem Kanal für Live-Streams, Musikdrops und Tour-Updates.</p>
+
+          <div class="cta-group">
+            <button class="btn-cta" onclick="openStream()">Watch Live</button>
+            <a class="link" href="#clips">Neueste Clips →</a>
+          </div>
+
+          <!-- quick stats -->
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap">
+            <div class="card" style="padding:10px 14px;border-radius:12px;min-width:140px">
+              <div class="muted" style="font-size:13px">Subscribers</div>
+              <div style="font-weight:800;font-size:18px">44.8M</div>
+            </div>
+            <div class="card" style="padding:10px 14px;border-radius:12px;min-width:140px">
+              <div class="muted" style="font-size:13px">Aktuelle Views (30d)</div>
+              <div style="font-weight:800;font-size:18px">125M</div>
+            </div>
+            <div class="card" style="padding:10px 14px;border-radius:12px;min-width:140px">
+              <div class="muted" style="font-size:13px">Top Genre</div>
+              <div style="font-weight:800;font-size:18px">Gaming • IRL • Music</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card">
+          <!-- Replace the image below with a live thumbnail or a stream embed -->
+          <div class="video-preview" id="player">
+            <!-- Placeholder poster image — replace with live stream embed (YouTube/Twitch iframe) -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/IShowSpeed_at_Chinatown_%28Portrait%29_02.jpg" alt="IShowSpeed preview">
+            <div class="overlay-controls">
+              <button class="play-btn" onclick="openStream()">▶ Live</button>
+              <div class="muted" style="font-size:13px">Nächster Stream: 20:00 UTC</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:12px;align-items:center">
+            <div style="flex:1">
+              <div class="muted" style="font-size:13px">Neuester Drop</div>
+              <div style="font-weight:800">"Speed Mode" — Single</div>
+            </div>
+            <div style="text-align:right">
+              <button class="btn-cta" onclick="alert('Link to music store')">Hören</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- CLIPS -->
+      <section id="clips" class="section">
+        <h2 style="margin:6px 0 10px;font-size:20px">🔥 Neueste Clips</h2>
+        <div class="grid-4">
+          <!-- Repeat these clips; replace background-image URLs with real thumbnails -->
+          <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop');background-size:cover;">
+            <div class="meta">
+              <div style="font-weight:800">Rage Moment</div>
+              <div class="muted" style="font-size:13px">2.3M views</div>
+            </div>
+          </div>
+          <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1526378723032-0a8f60d0d0f6?q=80&w=800&auto=format&fit=crop');background-size:cover;">
+            <div class="meta">
+              <div style="font-weight:800">Soccer Reaction</div>
+              <div class="muted" style="font-size:13px">1.1M views</div>
+            </div>
+          </div>
+          <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=800&auto=format&fit=crop');background-size:cover;">
+            <div class="meta">
+              <div style="font-weight:800">IRL Stream Highlights</div>
+              <div class="muted" style="font-size:13px">900k views</div>
+            </div>
+          </div>
+          <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=800&auto=format&fit=crop');background-size:cover;">
+            <div class="meta">
+              <div style="font-weight:800">Music Drop Reaction</div>
+              <div class="muted" style="font-size:13px">720k views</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;justify-content:center">
+          <button class="btn-cta" onclick="alert('Link to full clips page')">Alle Clips ansehen</button>
+        </div>
+      </section>
+
+      <!-- TOUR -->
+      <section id="tour" class="section">
+        <h2 style="margin:6px 0 10px;font-size:20px">🗓 Tour & Events</h2>
+        <div class="tour-list">
+          <div class="tour-item">
+            <div>
+              <div style="font-weight:800">New York — Madison Square Garden</div>
+              <div class="muted" style="font-size:13px">12. Dez 2025 • Doors 18:00</div>
+            </div>
+            <div style="text-align:right"><button class="btn-cta" onclick="alert('Tickets kaufen')">Tickets</button></div>
+          </div>
+          <div class="tour-item">
+            <div>
+              <div style="font-weight:800">London — O2 Arena</div>
+              <div class="muted" style="font-size:13px">24. Jan 2026 • Meet & Greet</div>
+            </div>
+            <div style="text-align:right"><button class="btn-cta" onclick="alert('Tickets kaufen')">Tickets</button></div>
+          </div>
+          <div class="tour-item">
+            <div>
+              <div style="font-weight:800">Berlin — Mercedes-Benz Arena</div>
+              <div class="muted" style="font-size:13px">10. Feb 2026 • VIP Sold Out</div>
+            </div>
+            <div style="text-align:right"><button class="btn-cta" onclick="alert('Mehr Infos')">Mehr</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MERCH -->
+      <section id="merch" class="section">
+        <h2 style="margin:6px 0 10px;font-size:20px">Merch</h2>
+        <div class="merch-strip" aria-label="Merchandise Produkte">
+          <div class="merch-item">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop" alt="Hoodie" style="width:100%;border-radius:10px;height:120px;object-fit:cover">
+            <div style="font-weight:800">Speed Hoodie</div>
+            <div class="muted" style="font-size:13px">€54.99 • Limited</div>
+            <button class="btn-cta" style="margin-top:auto" onclick="alert('Zum Shop')">Buy</button>
+          </div>
+
+          <div class="merch-item">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800&auto=format&fit=crop" alt="Cap" style="width:100%;border-radius:10px;height:120px;object-fit:cover">
+            <div style="font-weight:800">Speed Cap</div>
+            <div class="muted" style="font-size:13px">€29.99</div>
+            <button class="btn-cta" style="margin-top:auto" onclick="alert('Zum Shop')">Buy</button>
+          </div>
+
+          <div class="merch-item">
+            <img src="https://images.unsplash.com/photo-1540051786968-1f13b872b2f8?q=80&w=800&auto=format&fit=crop" alt="Poster" style="width:100%;border-radius:10px;height:120px;object-fit:cover">
+            <div style="font-weight:800">Speed Poster</div>
+            <div class="muted" style="font-size:13px">€14.99</div>
+            <button class="btn-cta" style="margin-top:auto" onclick="alert('Zum Shop')">Buy</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="kontakt" class="section" style="margin-bottom:24px">
+        <h2 style="margin:6px 0 10px;font-size:20px">Kontakt & Booking</h2>
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+          <form onsubmit="event.preventDefault(); alert('Nachricht gesendet — Platzhalter')">
+            <div style="display:flex;gap:8px">
+              <input required placeholder="Name" style="flex:1;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
+              <input required placeholder="E-Mail" style="flex:1;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
+            </div>
+            <textarea required placeholder="Nachricht" style="width:100%;margin-top:8px;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit"></textarea>
+            <div style="margin-top:8px"><button class="btn-cta" type="submit">Senden</button></div>
+          </form>
+
+          <aside class="card">
+            <div style="font-weight:800">Agentur / Management</div>
+            <div class="muted" style="font-size:13px;margin-top:8px">booking@example.com</div>
+            <div style="margin-top:12px">
+              <div class="muted">Socials</div>
+              <div class="socials" style="margin-top:6px">
+                <a href="#" aria-label="YouTube">YouTube</a>
+                <a href="#" aria-label="Twitch">Twitch</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="X">X</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">© <strong>IShowSpeed</strong> Fan Site — not official</div>
+      <div class="muted">Made with ⚡ by a fan — replace with official links</div>
+    </footer>
+  </div>
+
+  <script>
+    // Basic interactive helpers (replace with real embeds/APIs)
+    function openStream(){
+      // Replace with a real embed: example YouTube / Twitch iframe in a modal
+      const url = prompt('Gib die Live-Stream URL ein (YouTube/Twitch iframe URL):', 'https://www.youtube.com/watch?v=VIDEO_ID');
+      if(!url) return;
+      // Open a simple popup window for preview
+      window.open(url,'_blank','noopener');
+    }
+
+    // Small accessibility: enable keyboard focus outline for mouse users off by default
+    (function(){
+      function handleFirstTab(e) {
+        if(e.key === 'Tab'){
+          document.documentElement.classList.add('show-focus');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <body>
+            
+          <style>
+    :root{
+      --bg:#07070b;
+      --panel:#0f1116;
+      --muted:#9aa7b8;
+      --neon-1:#00FF9C;
+      --neon-2:#FFD700;
+      --accent:linear-gradient(90deg,var(--neon-1),#6bfffa,#8b5cf6);
+      --glass:rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1200px;
+      --ff-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+      --ff-display:'Bebas Neue','Impact',sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;font-family:var(--ff-sans);background:var(--bg);color:#eaf6f3;line-height:1.45;}
+    a{color:inherit;text-decoration:none;}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+    .logo{width:64px;height:64px;border-radius:14px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:700;color:#041025;}
+    nav a{margin:0 6px;font-weight:600;color:var(--muted)}
+    nav a:hover{color:var(--neon-1)}
+    .btn-cta{background:var(--accent);color:#041025;border:none;padding:10px 16px;border-radius:12px;font-weight:700;cursor:pointer;margin-left:6px;}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
+    .hero h1{font-family:var(--ff-display);font-size:54px;margin:0;line-height:0.95;background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .hero p{color:var(--muted);margin:6px 0 18px;}
+    .live-badge{display:inline-flex;gap:6px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(0,255,154,0.12);}
+    .live-dot{width:10px;height:10px;border-radius:50%;background:var(--neon-1);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+    .card{background:var(--panel);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(2,6,23,0.55);margin-bottom:18px;}
+    .video-preview{width:100%;height:240px;border-radius:12px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;position:relative;}
+    .video-preview img{width:100%;height:100%;object-fit:cover;}
+    .overlay-controls{position:absolute;left:12px;bottom:12px;display:flex;gap:8px;align-items:center;}
+    .play-btn{background:var(--neon-1);color:#021012;border:none;padding:10px 12px;border-radius:10px;font-weight:800;cursor:pointer;}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .clip{background:#071018;border-radius:12px;overflow:hidden;position:relative;height:150px;display:flex;align-items:end;padding:10px;}
+    .clip .meta{background:linear-gradient(0deg, rgba(0,0,0,0.7), transparent);padding:8px;border-radius:8px;}
+    .merch-strip{display:flex;gap:12px;overflow:auto;padding:12px 4px;}
+    .merch-item{min-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
+    .tour-list{display:flex;flex-direction:column;gap:10px;}
+    .tour-item{display:flex;justify-content:space-between;gap:12px;background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;}
+    footer{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,1fr)}.video-preview{height:200px}}
+    @media (max-width:480px){.grid-4{grid-template-columns:1fr}.logo{width:52px;height:52px;font-size:22px}.hero h1{font-size:36px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">SPD</div>
+      <nav>
+        <a href="test.html">Home</a>
+        <a href="clips.html">Clips</a>
+        <a href="merch.html">Merch/Tour</a>
+        <a class="btn-cta" href="https://www.youtube.com/@IShowSpeed" target="_blank">Live ansehen</a>
+      </nav>
+    </header>
+
+    <section id="merch" class="section">
+        <h2 style="margin:6px 0 10px;font-size:20px">Merch</h2>
+        <div class="merch-strip" aria-label="Merchandise Produkte">
+          <div class="merch-item">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop" alt="Hoodie" style="width:100%;border-radius:10px;height:120px;object-fit:cover">
+            <div style="font-weight:800">Speed Hoodie</div>
+            <div class="muted" style="font-size:13px">€54.99 • Limited</div>
+            <button class="btn-cta" style="margin-top:auto" onclick="alert('Zum Shop')">Buy</button>
+          </div>
+
+          <div class="merch-item">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800&auto=format&fit=crop" alt="Cap" style="width:100%;border-radius:10px;height:120px;object-fit:cover">
+            <div style="font-weight:800">Speed Cap</div>
+            <div class="muted" style="font-size:13px">€29.99</div>
+            <button class="btn-cta" style="margin-top:auto" onclick="alert('Zum Shop')">Buy</button>
+          </div>
+
+          <div class="merch-item">
+            <img src="https://images.unsplash.com/photo-1540051786968-1f13b872b2f8?q=80&w=800&auto=format&fit=crop" alt="Poster" style="width:100%;border-radius:10px;height:120px;object-fit:cover">
+            <div style="font-weight:800">Speed Poster</div>
+            <div class="muted" style="font-size:13px">€14.99</div>
+            <button class="btn-cta" style="margin-top:auto" onclick="alert('Zum Shop')">Buy</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="kontakt" class="section" style="margin-bottom:24px">
+        <h2 style="margin:6px 0 10px;font-size:20px">Kontakt & Booking</h2>
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+          <form onsubmit="event.preventDefault(); alert('Nachricht gesendet — Platzhalter')">
+            <div style="display:flex;gap:8px">
+              <input required placeholder="Name" style="flex:1;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
+              <input required placeholder="E-Mail" style="flex:1;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
+            </div>
+            <textarea required placeholder="Nachricht" style="width:100%;margin-top:8px;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit"></textarea>
+            <div style="margin-top:8px"><button class="btn-cta" type="submit">Senden</button></div>
+          </form>
+
+          <aside class="card">
+            <div style="font-weight:800">Agentur / Management</div>
+            <div class="muted" style="font-size:13px;margin-top:8px">booking@example.com</div>
+            <div style="margin-top:12px">
+              <div class="muted">Socials</div>
+              <div class="socials" style="margin-top:6px">
+                <a href="#" aria-label="YouTube">YouTube</a>
+                <a href="#" aria-label="Twitch">Twitch</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="X">X</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">© <strong>IShowSpeed</strong> Fan Site — not official</div>
+      <div class="muted">Made with ⚡ by a fan — replace with official links</div>
+    </footer>
+  </div>
+
+
+    </head>
+</html>

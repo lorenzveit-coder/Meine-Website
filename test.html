@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de">
+<head>
+    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IShowSpeed Fanseite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#07070b;
+      --panel:#0f1116;
+      --muted:#9aa7b8;
+      --neon-1:#00FF9C;
+      --neon-2:#FFD700;
+      --accent:linear-gradient(90deg,var(--neon-1),#6bfffa,#8b5cf6);
+      --glass:rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1200px;
+      --ff-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+      --ff-display:'Bebas Neue','Impact',sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;font-family:var(--ff-sans);background:var(--bg);color:#eaf6f3;line-height:1.45;}
+    a{color:inherit;text-decoration:none;}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+    .logo{width:64px;height:64px;border-radius:14px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:700;color:#041025;}
+    nav a{margin:0 6px;font-weight:600;color:var(--muted)}
+    nav a:hover{color:var(--neon-1)}
+    .btn-cta{background:var(--accent);color:#041025;border:none;padding:10px 16px;border-radius:12px;font-weight:700;cursor:pointer;margin-left:6px;}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
+    .hero h1{font-family:var(--ff-display);font-size:54px;margin:0;line-height:0.95;background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .hero p{color:var(--muted);margin:6px 0 18px;}
+    .live-badge{display:inline-flex;gap:6px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(0,255,154,0.12);}
+    .live-dot{width:10px;height:10px;border-radius:50%;background:var(--neon-1);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+    .card{background:var(--panel);border-radius:var(--radius);padding:14px;box-shadow:0 10px 30px rgba(2,6,23,0.55);margin-bottom:18px;}
+    .video-preview{width:100%;height:240px;border-radius:12px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;position:relative;}
+    .video-preview img{width:100%;height:100%;object-fit:cover;}
+    .overlay-controls{position:absolute;left:12px;bottom:12px;display:flex;gap:8px;align-items:center;}
+    .play-btn{background:var(--neon-1);color:#021012;border:none;padding:10px 12px;border-radius:10px;font-weight:800;cursor:pointer;}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .clip{background:#071018;border-radius:12px;overflow:hidden;position:relative;height:150px;display:flex;align-items:end;padding:10px;}
+    .clip .meta{background:linear-gradient(0deg, rgba(0,0,0,0.7), transparent);padding:8px;border-radius:8px;}
+    .merch-strip{display:flex;gap:12px;overflow:auto;padding:12px 4px;}
+    .merch-item{min-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
+    .tour-list{display:flex;flex-direction:column;gap:10px;}
+    .tour-item{display:flex;justify-content:space-between;gap:12px;background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;}
+    footer{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,1fr)}.video-preview{height:200px}}
+    @media (max-width:480px){.grid-4{grid-template-columns:1fr}.logo{width:52px;height:52px;font-size:22px}.hero h1{font-size:36px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">SPD</div>
+      <nav>
+        <a href="test.html">Home</a>
+        <a href="clips.html">Clips</a>
+        <a href="merch.html">Merch/Tour</a>
+        <a class="btn-cta" href="https://www.youtube.com/@IShowSpeed" target="_blank">Live ansehen</a>
+      </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+      <div>
+        <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+        <h1>SPEED — LIVE & UNFILTERED</h1>
+        <p>Die lautesten Reaktionen, Karriere-Momente & exklusive Clips.</p>
+      </div>
+      <div class="card">
+        <div class="video-preview">
+          <img src="speed.webp" alt="IShowSpeed Preview">
+          <div class="overlay-controls"><button class="play-btn" onclick="window.open('https://www.youtube.com/@IShowSpeed','_blank')">▶ Live</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clips Section -->
+    <section id="clips">
+      <h2>Neueste Clips</h2>
+      <div class="grid-4">
+        <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop');background-size:cover;"><div class="meta"><div>Rage Moment</div><div class="muted">2.3M views</div></div></div>
+        <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1526378723032-0a8f60d0d0f6?q=80&w=800&auto=format&fit=crop');background-size:cover;"><div class="meta"><div>Soccer Reaction</div><div class="muted">1.1M views</div></div></div>
+        <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=800&auto=format&fit=crop');background-size:cover;"><div class="meta"><div>IRL Stream Highlights</div><div class="muted">900k views</div></div></div>
+        <div class="clip card" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=800&auto=format&fit=crop');background-size:cover;"><div class="meta"><div>Music Drop Reaction</div><div class="mut
+
+             <section id="kontakt" class="section" style="margin-bottom:24px">
+        <h2 style="margin:6px 0 10px;font-size:20px">Kontakt & Booking</h2>
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+          <form onsubmit="event.preventDefault(); alert('Nachricht gesendet — Platzhalter')">
+            <div style="display:flex;gap:8px">
+              <input required placeholder="Name" style="flex:1;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
+              <input required placeholder="E-Mail" style="flex:1;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
+            </div>
+            <textarea required placeholder="Nachricht" style="width:100%;margin-top:8px;padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit"></textarea>
+            <div style="margin-top:8px"><button class="btn-cta" type="submit">Senden</button></div>
+          </form>
+
+          <aside class="card">
+            <div style="font-weight:800">Agentur / Management</div>
+            <div class="muted" style="font-size:13px;margin-top:8px">booking@example.com</div>
+            <div style="margin-top:12px">
+              <div class="muted">Socials</div>
+              <div class="socials" style="margin-top:6px">
+                <a href="#" aria-label="YouTube">YouTube</a>
+                <a href="#" aria-label="Twitch">Twitch</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="X">X</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">© <strong>IShowSpeed</strong> Fan Site — not official</div>
+      <div class="muted">Made with ⚡ by a fan — replace with official links</div>
+    </footer>
+  </div>
+    
